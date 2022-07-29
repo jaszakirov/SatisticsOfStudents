@@ -1,0 +1,44 @@
+{{#if students }}
+<table>
+    <tr>
+        <thead>
+            <th>Img</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>group</th>
+        </thead>
+    </tr>
+    <tbody>
+        {{#each students}}
+        <tr>
+            <td>
+                <img src="{{img}}" alt="" style="width: 64px ; height: 64px;">
+            </td>
+            <td>
+                <a href="/api/categories/{{id}}">{{name}}</a>
+            </td>
+            <td>
+                {{surname}}
+            </td>
+            <td>
+                {{group}}
+            </td>
+            <td>
+                {{points}}
+            </td>
+            <td>
+                <a href="/api/categories/delete/{{id}}" class="btn btn-outline-danger"> Delete</a>
+            </td>
+            <td>
+                <form action="/api/card/add" method="post">
+                <input type="hidden" value="{{id}}" name="id">
+                <button type="submit"class="btn btn-outline-dark"  >Buy</button>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>
+{{else}}
+<h2>student is empty</h2>
+<a href="/add/student">Add student</a>
+{{/if}}
