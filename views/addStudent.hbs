@@ -1,23 +1,29 @@
-<form  action="/add/student" method="post">
-  <div class="mb-3">
-    <label for="img" class="form-label">Img</label>
-    <input type="text" class="form-control" id="img" aria-describedby="emailHelp" name="img">
-  </div>
-  <div class="mb-3">
-    <label for="name" class="form-label" >Name</label>
-    <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name="name">
-  </div>
-  <div class="mb-3">
-    <label for="surname" class="form-label">Surname</label>
-    <input type="text" class="form-control" id="surname" aria-describedby="emailHelp" name="surname">
-  </div>
-  <div class="mb-3">
-    <label for="group" class="form-label">Group</label>
-    <input type="text" class="form-control" id="group" aria-describedby="emailHelp" name="group">
-  </div>
-  <div class="mb-3">
-    <label for="point" class="form-label">Points</label>
-    <input type="text" class="form-control" id="point" aria-describedby="emailHelp" name="points">
-  </div>
-  <button type="submit" class="btn btn-primary">Add</button>
-</form>
+<div class="container">
+    <div class="row">
+        <div class="col-10">
+            <form action="/add/student" method="post">
+                <div class="mb-3">
+                    <label for="img" class="form-label">Img</label>
+                    <input type='img' class="form-control" id="img" aria-describedby="emailHelp" name="img">
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name="name">
+                </div>
+                <div class="mb-3">
+                    <label for="course" class="form-label">Course</label>
+                    <input type="text" class="form-control" id="course" aria-describedby="emailHelp" name="course">
+                </div>
+                <div class="mb-3">
+                    <label for="group" class="form-label">Group</label>
+                    <input type="text" class="form-control" id="group" aria-describedby="emailHelp" name="group">
+                </div>
+                <div class="mb-3">
+                    <label for="points" class="form-label">Points</label>
+                    <input type="Number" class="form-control" id="points" aria-describedby="emailHelp" name="points">
+                </div>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+        </div>
+    </div>
+</div>

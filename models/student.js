@@ -1,19 +1,18 @@
 const {Schema , model} = require('mongoose')
 const studentSchema = new Schema({
+    Number : Number , 
     name : {
         type : String , 
-        required : true 
     } , 
-    surname : {
+    course : {
         type : String , 
     } , 
     group : {
         type : String , 
-        required : true 
     }  , 
     points : {
         type : Number , 
-        default : 0 
-    }
+        default : 0  
+    } ,
 })
 module.exports = model(`student` , studentSchema)

@@ -1,44 +1,40 @@
-{{#if students }}
-<table>
-    <tr>
+<div class="container">
+    {{#if students }}
+    <table class="table table-dark table-striped">
         <thead>
-            <th>Img</th>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>group</th>
+            <tr>
+                <th scope="col">№</th>
+                <th scope="col">Name</th>
+                <th scope="col">Course</th>
+                <th scope="col">Group</th>
+                <th scope="col">Points</th>
+                <th scope="col">Add points</th>
+            </tr>
         </thead>
-    </tr>
-    <tbody>
-        {{#each students}}
-        <tr>
-            <td>
-                <img src="{{img}}" alt="" style="width: 64px ; height: 64px;">
-            </td>
-            <td>
-                <a href="/api/categories/{{id}}">{{name}}</a>
-            </td>
-            <td>
-                {{surname}}
-            </td>
-            <td>
-                {{group}}
-            </td>
-            <td>
-                {{points}}
-            </td>
-            <td>
-                <a href="/api/categories/delete/{{id}}" class="btn btn-outline-danger"> Delete</a>
-            </td>
-            <td>
-                <form action="/api/card/add" method="post">
-                <input type="hidden" value="{{id}}" name="id">
-                <button type="submit"class="btn btn-outline-dark"  >Buy</button>
-                </form>
-            </td>
-        </tr>
-    </tbody>
-</table>
-{{else}}
-<h2>student is empty</h2>
-<a href="/add/student">Add student</a>
-{{/if}}
+        <tbody>
+            {{#each students}}
+            <tr>
+                <th scope="row">{{img}}</th>
+                <td>{{name}}</td>
+                <td>{{course}}</td>
+                <td>{{group}}</td>
+                <td class="score">{{points}}</td>
+                <td class="addPoints">
+                    <button type="button" class="btn btn-secondary forPoints">Add points</button>
+                    <form action="/add/poits" method="post" class="formToaAddPoints"  >
+                    <label for="addPoints">Add points</label>
+                    <input type="Number" id="addPoints" aria-describedby="pointsHelp" name="addPoints">
+                    <label for="id"></label>
+                    <input type="hidden" id="id" aria-describedby="pointsHelp" name="id" value="{{id}}">
+                   <input type="hidden" value="{{points}}" name="oldpoints">
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    {{else}}
+    <h2>student is empty</h2>
+    <a href="/add/student">Add student</a>
+    {{/if}}
+</div>
