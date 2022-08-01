@@ -1,40 +1,51 @@
 <div class="container">
+    <div class="filter">
+        <h2>Filter Students</h2>
+        <form action="/filter/student">
+            <label for="filterCourse">Course</label>
+            <input type="text" id="filterCourse" aria-describedby="pointsHelp" name="filterCourse">
+            <label for="fitleGroup">Group</label>
+            <input type="text" id="fitleGroup" aria-describedby="pointsHelp" name="fitleGroup">
+        </form>
+    </div>
     {{#if students }}
     <table class="table table-dark table-striped">
         <thead>
             <tr>
-                <th scope="col">№</th>
+                <th>№</th>
                 <th scope="col">Name</th>
                 <th scope="col">Course</th>
                 <th scope="col">Group</th>
                 <th scope="col">Points</th>
                 <th scope="col">Add points</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
             {{#each students}}
             <tr>
-                <th scope="row">{{img}}</th>
+                <td>{{@index}}</td>
                 <td>{{name}}</td>
                 <td>{{course}}</td>
                 <td>{{group}}</td>
                 <td class="score">{{points}}</td>
                 <td class="addPoints">
                     <button type="button" class="btn btn-secondary forPoints">Add points</button>
-                    <form action="/add/poits" method="post" class="formToaAddPoints"  >
-                    <label for="addPoints">Add points</label>
-                    <input type="Number" id="addPoints" aria-describedby="pointsHelp" name="addPoints">
-                    <label for="id"></label>
-                    <input type="hidden" id="id" aria-describedby="pointsHelp" name="id" value="{{id}}">
-                   <input type="hidden" value="{{points}}" name="oldpoints">
+                    <form action="/add/points" method="post" class="formToaAddPoints">
+                        <label for="addPoints">Add points</label>
+                        <input type="Number" id="addPoints" aria-describedby="pointsHelp" name="addPoints">
+                        <label for="id"></label>
+                        <input type="hidden" id="id" aria-describedby="pointsHelp" name="id" value="{{id}}">
                     </form>
                 </td>
+                <td><a href="/remove/{{id}}" class="btn btn-danger">Delete</a></td>
             </tr>
             {{/each}}
         </tbody>
     </table>
+    <a href="/add/student" class="btn btn-secondary"> Add Student</a>
     {{else}}
-    <h2>student is empty</h2>
+    <h2 class="noStudent">No students yet</h2>
     <a href="/add/student">Add student</a>
     {{/if}}
 </div>

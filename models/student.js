@@ -11,8 +11,9 @@ const studentSchema = new Schema({
         type : String , 
     }  , 
     points : {
+        default : 0  ,
         type : Number , 
-        default : 0  
+        
     } ,
 })
 module.exports = model(`student` , studentSchema)
